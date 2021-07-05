@@ -5,7 +5,7 @@ Builds Deformable DETR package.
 import glob
 import os
 
-from setuptools import setup
+from setuptools import find_packages, setup
 import torch
 from torch.utils.cpp_extension import CUDA_HOME
 from torch.utils.cpp_extension import CppExtension
@@ -36,7 +36,7 @@ def get_extensions():
             "-D__CUDA_NO_HALF2_OPERATORS__",
         ]
     else:
-        raise NotImplementedError('Cuda is not availabel')
+        raise NotImplementedError("CUDA is not available.")
 
     sources = [os.path.join(extensions_dir, s) for s in sources]
     include_dirs = [extensions_dir]
@@ -53,9 +53,12 @@ def get_extensions():
     return ext_modules
 
 
+packages = find_packages(exclude=("*datasets", "models.ops", "util"))
+package_dir = {f'deformable_detr.{v}': v for v in packages}
+
 setup(
-    package_dir={'deformable-detr.models': "models"},
-    packages=["deformable-detr.models"],
+    packages=packages,
+    package_dir=package_dir,
     python_requires=">=3.7",
     install_requires=[
         "torch>=1.5.1",
