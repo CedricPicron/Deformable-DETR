@@ -42,7 +42,7 @@ def get_extensions():
     include_dirs = [extensions_dir]
     ext_modules = [
         extension(
-            "MultiScaleDeformableAttention",
+            "deformable-detr.models.ops.MultiScaleDeformableAttention",
             sources,
             include_dirs=include_dirs,
             define_macros=define_macros,
@@ -54,11 +54,12 @@ def get_extensions():
 
 
 packages = find_packages(exclude=("*datasets", "models.ops", "util"))
-package_dir = {f'deformable_detr.{v}': v for v in packages}
+packages = [f'deformable-detr.{package}' for package in packages]
+package_dir = {'deformable-detr': ''}
 
 setup(
-    packages=packages,
     package_dir=package_dir,
+    packages=packages,
     python_requires=">=3.7",
     install_requires=[
         "torch>=1.5.1",
