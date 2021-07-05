@@ -1,15 +1,6 @@
-# ------------------------------------------------------------------------
-# Deformable DETR
-# Copyright (c) 2020 SenseTime. All Rights Reserved.
-# Licensed under the Apache License, Version 2.0 [see LICENSE for details]
-# ------------------------------------------------------------------------
-# Modified from DETR (https://github.com/facebookresearch/detr)
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
-# ------------------------------------------------------------------------
-
-from .deformable_detr import build
-
-
-def build_model(args):
-    return build(args)
-
+from .deformable_detr import DeformableDETR
+from .deformable_transformer import DeformableTransformer
+from .deformable_transformer import DeformableTransformerEncoder
+from .deformable_transformer import DeformableTransformerEncoderLayer
+from .deformable_transformer import DeformableTransformerDecoder
+from .deformable_transformer import DeformableTransformerDecoderLayer

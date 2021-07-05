@@ -53,7 +53,7 @@ def get_extensions():
     return ext_modules
 
 
-packages = find_packages(exclude=("*datasets", "models.ops", "util"))
+packages = find_packages(exclude=("*datasets", "models.ops"))
 packages = [f'deformable_detr.{package}' for package in packages]
 package_dir = {'deformable_detr': ''}
 
