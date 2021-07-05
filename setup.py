@@ -2,11 +2,12 @@
 Builds Deformable DETR package.
 """
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 
 setup(
-    packages=find_packages(exclude=("configs", "datasets", "docs", "figs")),
+    package_dir={'deformable-detr.models': "models"},
+    packages=["deformable-detr.models"],
     python_requires=">=3.7",
     install_requires=[
         "torch>=1.5.1",
