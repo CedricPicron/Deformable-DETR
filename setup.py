@@ -42,7 +42,7 @@ def get_extensions():
     include_dirs = [extensions_dir]
     ext_modules = [
         extension(
-            "deformable-detr.models.ops.MultiScaleDeformableAttention",
+            "deformable_detr.models.ops.MultiScaleDeformableAttention",
             sources,
             include_dirs=include_dirs,
             define_macros=define_macros,
@@ -54,8 +54,8 @@ def get_extensions():
 
 
 packages = find_packages(exclude=("*datasets", "models.ops", "util"))
-packages = [f'deformable-detr.{package}' for package in packages]
-package_dir = {'deformable-detr': ''}
+packages = [f'deformable_detr.{package}' for package in packages]
+package_dir = {'deformable_detr': ''}
 
 setup(
     package_dir=package_dir,
