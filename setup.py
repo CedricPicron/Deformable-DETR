@@ -27,6 +27,7 @@ def get_extensions():
     extension = CUDAExtension
     sources += source_cuda
     define_macros += [("WITH_CUDA", None)]
+    os.environ["TORCH_CUDA_ARCH_LIST"] = "5.2;6.0;6.1;7.0;7.5;8.0;8.6+PTX"
     extra_compile_args["nvcc"] = [
         "-DCUDA_HAS_FP16=1",
         "-D__CUDA_NO_HALF_OPERATORS__",
